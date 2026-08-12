@@ -2,7 +2,7 @@
 
 [中文](README.md) · [English](README.en.md)
 
-![Version](https://img.shields.io/badge/version-v2.0.0-a72c26) ![License](https://img.shields.io/badge/license-MIT-282722) ![Runtime](https://img.shields.io/badge/runtime-browser%20only-c98716) [![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
+![Version](https://img.shields.io/badge/version-v2.0.1-a72c26) ![License](https://img.shields.io/badge/license-MIT-282722) ![Runtime](https://img.shields.io/badge/runtime-browser%20only-c98716) [![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 
 ACKS Watermarker is a privacy-minded browser watermark studio. It supports image and text watermarks, direct manipulation, handwriting fonts, batch workflows, lightweight local background removal, local repair, and PNG, JPG, or ZIP export. Image processing and export happen in the current browser without an application backend.
 
@@ -10,7 +10,7 @@ ACKS Watermarker is a privacy-minded browser watermark studio. It supports image
 
 ## Design and workflow
 
-Version 2 uses a warm paper, archival red, and black-metal visual language. Desktop keeps the complete canvas, asset strip, and property panel visible. Mobile follows the real task order with four clear steps: **Import image → Assets → Edit → Export**.
+Version 2 uses a warm paper, archival red, and black-metal visual language. The selected “Crop Drop” identity uses the droplet for watermarking and four control points for selection, scaling, and positioning. Desktop keeps the complete canvas, asset strip, and property panel visible. Mobile follows the real task order with four clear steps: **Import image → Assets → Edit → Export**.
 
 <p align="center">
   <img src="docs/screenshots/mobile.png" width="390" alt="ACKS Watermarker mobile interface" />
@@ -49,12 +49,12 @@ There is no runtime framework, database, or application backend. Node.js is used
 .
 ├── index.html                 # Document structure and styles
 ├── app.js                     # Editor state, interactions, and export logic
-├── assets/                    # Local interface textures
+├── assets/                    # Local interface textures and brand assets
 ├── nginx.conf                 # Static serving, security headers, font gateway
 ├── Dockerfile
 ├── compose.yaml
 ├── tests/                     # Playwright regressions
-├── scripts/capture-docs.mjs   # Reproducible documentation screenshots
+├── scripts/                   # Brand icon export and documentation screenshots
 └── docs/screenshots/          # README interface screenshots
 ```
 
@@ -99,6 +99,12 @@ Node.js 22 or a compatible version is required:
 npm ci
 npx playwright install chromium
 npm test
+```
+
+After editing the brand SVG masters, regenerate the favicon, Apple Touch Icon, and application icons with:
+
+```bash
+npm run brand:export
 ```
 
 To regenerate the README screenshots, start the Docker service and run:

@@ -4,7 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#e9e2d1" />
-<title>水印工坊 · Watermark Studio</title>
+<link rel="icon" href="assets/brand/favicon.svg?v=3" type="image/svg+xml" />
+<link rel="icon" href="assets/brand/favicon-32x32.png?v=3" sizes="32x32" type="image/png" />
+<link rel="icon" href="assets/brand/favicon-16x16.png?v=3" sizes="16x16" type="image/png" />
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png?v=3" sizes="180x180" />
+<title>ACKS Watermarker · 水印工坊</title>
 <style>
 /* ============ 设计变量（Apple HIG 中性灰阶，无蓝紫赛博风） ============ */
 :root{
@@ -285,13 +289,10 @@ button:focus-visible,input:focus-visible,select:focus-visible,.asset-card:focus-
   background:transparent;border-bottom:1px solid rgba(91,78,57,.3);
   gap:10px;z-index:20;
 }
-.center-head::before{
-  content:"A";
-  width:44px;height:44px;margin-right:5px;
-  display:grid;place-items:center;
-  font-family:var(--font-display);font-size:31px;font-style:italic;font-weight:700;
-  color:#181713;background:#f2ecdd;border:1px solid #9d927f;
-  box-shadow:3px 3px 0 rgba(49,44,35,.2);
+.brand-mark{
+  width:46px;height:46px;margin-right:4px;flex:0 0 auto;
+  display:block;object-fit:contain;
+  filter:drop-shadow(3px 3px 0 rgba(49,44,35,.15));
 }
 .center-head .ttl{
   min-width:190px;font-family:var(--font-display);font-size:22px;font-weight:700;letter-spacing:.04em;
@@ -482,7 +483,7 @@ input[type=range]::-webkit-slider-thumb{width:15px;height:15px;background:#f4edd
     border-bottom:1px solid #b8ad99;
     box-shadow:0 2px 10px rgba(58,49,35,.08);
   }
-  .center-head::before{width:32px;height:32px;margin:0;font-size:22px;box-shadow:2px 2px 0 rgba(49,44,35,.15);}
+  .brand-mark{width:34px;height:34px;margin:0;filter:drop-shadow(2px 2px 0 rgba(49,44,35,.12));}
   .center-head .ttl{min-width:0;flex:1;font-size:17px;white-space:nowrap;}
   .center-head .ttl::after{display:block;font-size:7px;letter-spacing:.12em;}
   .center-head .seg{margin-left:auto!important;flex:0 0 auto;}
@@ -609,7 +610,7 @@ input[type=range]::-webkit-slider-thumb{width:15px;height:15px;background:#f4edd
 }
 @media (max-width:620px){
   .center-head{padding:0 10px;gap:8px;}
-  .center-head::before{width:30px;height:30px;font-size:21px;}
+  .brand-mark{width:32px;height:32px;}
   .center-head .ttl{font-size:15px;}
   .center-head .ttl::after{display:none;}
   .center-head .seg button{min-width:44px;padding:0 9px;}
@@ -648,6 +649,7 @@ input[type=range]::-webkit-slider-thumb{width:15px;height:15px;background:#f4edd
   <main class="center">
     <div class="center-head">
       <button class="icon-btn drawer-toggle" id="openLeft" title="素材库" aria-label="打开素材库" aria-controls="leftPanel" aria-expanded="false">素材</button>
+      <img class="brand-mark" src="assets/brand/acks-crop-drop.svg?v=3" alt="ACKS Watermarker" width="46" height="46" />
       <span class="ttl" id="centerTitle">工作区</span>
       <div class="seg" id="modeSeg" style="margin-left:6px" role="group" aria-label="处理模式">
         <button data-v="single" class="active" aria-pressed="true">单图</button>
@@ -939,7 +941,7 @@ input[type=range]::-webkit-slider-thumb{width:15px;height:15px;background:#f4edd
   <footer class="archive-status" aria-label="处理状态">
     <div class="archive-display"><strong>READY · LOCAL MODE</strong>ACKS WATERMARKER / PRIVATE WORKSPACE</div>
     <div class="archive-privacy"><strong>本地处理 · 保留隐私</strong><br />图片不会上传服务器，编辑与导出均在当前浏览器完成。</div>
-    <div class="archive-build">ACKS WATERMARKER<br />WORKSHOP EDITION · V2.0.0</div>
+    <div class="archive-build">ACKS WATERMARKER<br />WORKSHOP EDITION · V2.0.1</div>
   </footer>
 
   <nav class="mobile-actions" aria-label="移动端制作流程">

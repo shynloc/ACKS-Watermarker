@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">ACKS Watermarker</title>
+  <rect width="64" height="64" rx="8" fill="#f4eddf"/>
+  <g fill="#a72c26">
+    <path d="M4 5h9v9H4zM51 5h9v9h-9zM4 50h9v9H4zM51 50h9v9h-9z"/>
+    <path d="M7 9h4v47H7zM53 9h4v47h-4zM7 9h18v4H7zM39 9h18v4H39zM7 52h18v4H7zM39 52h18v4H39z"/>
+  </g>
+  <path fill="#282722" fill-rule="evenodd" d="M32 7C25 16 18 25 13 34c-3 6-5 11-5 16 0 4 2 8 5 11 5 4 12 7 19 7s14-3 19-7c3-3 5-7 5-11 0-5-2-10-5-16C46 25 39 16 32 7Zm0 16 17 34-6 5-5-10H26l-5 10-6-5 17-34Zm0 14-4 8h8l-4-8Z"/>
+</svg>

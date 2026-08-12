@@ -2,7 +2,7 @@
 
 [中文](README.md) · [English](README.en.md)
 
-![Version](https://img.shields.io/badge/version-v2.0.0-a72c26) ![License](https://img.shields.io/badge/license-MIT-282722) ![Runtime](https://img.shields.io/badge/runtime-browser%20only-c98716) [![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
+![Version](https://img.shields.io/badge/version-v2.0.1-a72c26) ![License](https://img.shields.io/badge/license-MIT-282722) ![Runtime](https://img.shields.io/badge/runtime-browser%20only-c98716) [![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 
 ACKS Watermarker 是一款注重隐私的浏览器图片水印工坊。它支持图片与文字水印、可视化拖拽编辑、手写字体、批量处理、本地轻量去背景与局部修复，并可导出 PNG、JPG 或 ZIP。图片处理和导出都在当前浏览器完成，不需要应用后端。
 
@@ -10,7 +10,7 @@ ACKS Watermarker 是一款注重隐私的浏览器图片水印工坊。它支持
 
 ## 设计与使用体验
 
-v2 采用温暖纸张、档案红和黑色金属构成的编辑台视觉语言。桌面端保留完整的画布、素材带和属性面板；移动端则按真实任务顺序组织为四步导航：**导入图片 → 素材 → 编辑 → 导出**。
+v2 采用温暖纸张、档案红和黑色金属构成的编辑台视觉语言。方案 3“裁切水滴”作为正式品牌标志：水滴代表水印，四角控制点对应选择、缩放与定位。桌面端保留完整的画布、素材带和属性面板；移动端则按真实任务顺序组织为四步导航：**导入图片 → 素材 → 编辑 → 导出**。
 
 <p align="center">
   <img src="docs/screenshots/mobile.png" width="390" alt="ACKS Watermarker 移动端界面" />
@@ -49,12 +49,12 @@ v2 采用温暖纸张、档案红和黑色金属构成的编辑台视觉语言�
 .
 ├── index.html                 # 页面结构与样式
 ├── app.js                     # 编辑器状态、交互和导出逻辑
-├── assets/                    # 本地界面纹理
+├── assets/                    # 本地界面纹理与品牌资产
 ├── nginx.conf                 # 静态站点、安全响应头、字体代理
 ├── Dockerfile
 ├── compose.yaml
 ├── tests/                     # Playwright 回归测试
-├── scripts/capture-docs.mjs   # 可复现的文档截图
+├── scripts/                   # 品牌图标导出与文档截图
 └── docs/screenshots/          # README 界面截图
 ```
 
@@ -103,6 +103,12 @@ python3 -m http.server 8765 --bind 127.0.0.1
 npm ci
 npx playwright install chromium
 npm test
+```
+
+品牌 SVG 更新后，可重新生成 favicon、Apple Touch Icon 和应用图标：
+
+```bash
+npm run brand:export
 ```
 
 重新生成 README 截图时，先启动 Docker 服务，再运行：

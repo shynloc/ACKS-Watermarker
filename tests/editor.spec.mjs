@@ -27,6 +27,50 @@ async function dragBy(page, locator, dx, dy) {
   await page.mouse.up();
 }
 
+test('the selected brand mark and icons load across desktop and mobile', async ({ page, request }) => {
+  await page.setViewportSize({ width: 1440, height: 1024 });
+  await page.goto('/');
+
+  await expect(page).toHaveTitle('ACKS Watermarker · 水印工坊');
+  const brand = page.locator('.brand-mark');
+  await expect(brand).toBeVisible();
+  await expect(brand).toHaveAttribute('alt', 'ACKS Watermarker');
+  expect(await brand.evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
+
+  const iconLinks = await page.locator('link[rel~="icon"], link[rel="apple-touch-icon"]').evaluateAll(links =>
+    links.map(link => link.getAttribute('href'))
+  );
+  expect(iconLinks).toEqual([
+    'assets/brand/favicon.svg?v=3',
+    'assets/brand/favicon-32x32.png?v=3',
+    'assets/brand/favicon-16x16.png?v=3',
+    'assets/brand/apple-touch-icon.png?v=3'
+  ]);
+  expect(iconLinks.every(href => href && !href.startsWith('/'))).toBe(true);
+
+  for (const href of iconLinks) {
+    const response = await request.get(`/${href}`);
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toMatch(/^image\/(svg\+xml|png)/);
+  }
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  const layout = await page.evaluate(() => {
+    const header = document.querySelector('.center-head').getBoundingClientRect();
+    const mark = document.querySelector('.brand-mark').getBoundingClientRect();
+    const mode = document.querySelector('#modeSeg').getBoundingClientRect();
+    return {
+      bodyWidth: document.body.scrollWidth,
+      viewportWidth: window.innerWidth,
+      markInsideHeader: mark.left >= header.left && mark.right <= header.right && mark.top >= header.top && mark.bottom <= header.bottom,
+      markBeforeMode: mark.right <= mode.left
+    };
+  });
+  expect(layout.bodyWidth).toBeLessThanOrEqual(layout.viewportWidth);
+  expect(layout.markInsideHeader).toBe(true);
+  expect(layout.markBeforeMode).toBe(true);
+});
+
 test('a watermark remains draggable across consecutive gestures and exports', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1024 });
   const consoleErrors = [];

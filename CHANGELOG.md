@@ -2,6 +2,19 @@
 
 All notable changes are documented here. This project follows [Semantic Versioning](https://semver.org/).
 
+## [2.0.1] - 2026-08-13
+
+### Added
+
+- The selected “Crop Drop” identity as standard and inverse SVG masters.
+- Versioned SVG/PNG favicons, Apple Touch Icon, 192 px and 512 px application icons.
+- A deterministic Playwright export script and regression coverage for brand assets and responsive header layout.
+
+### Changed
+
+- Replaced the boxed text “A” with the official ACKS Watermarker mark on desktop and mobile.
+- Updated the browser title and refreshed Chinese and English documentation screenshots.
+
 ## [2.0.0] - 2026-08-13
 
 ### Added
@@ -25,4 +38,5 @@ All notable changes are documented here. This project follows [Semantic Versioni
 - Removed the remotely executed AI background-removal module. Lightweight background removal and repair remain local to the browser.
 - Reduced high-memory repair and export limits on constrained devices.
 
+[2.0.1]: ../../releases/tag/v2.0.1
 [2.0.0]: ../../releases/tag/v2.0.0

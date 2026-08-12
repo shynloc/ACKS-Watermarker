@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">ACKS Watermarker 裁切水滴标志</title>
+  <desc id="desc">石墨色水滴中的字母 A，由档案红色的四角编辑框环绕。</desc>
+  <g fill="#a72c26">
+    <path d="M70 88h86v86H70zM868 88h86v86h-86zM70 850h86v86H70zM868 850h86v86h-86z"/>
+    <path d="M106 124h32v776h-32zM886 124h32v776h-32zM106 124h294v32H106zM624 124h294v32H624zM106 868h294v32H106zM624 868h294v32H624z"/>
+  </g>
+  <path fill="#282722" fill-rule="evenodd" d="M512 104C414 218 318 340 243 467c-56 95-83 172-83 254 0 80 26 146 77 196 65 64 165 99 275 99s210-35 275-99c51-50 77-116 77-196 0-82-27-159-83-254C706 340 610 218 512 104Zm0 274L786 900l-93 72-73-142H404l-73 142-93-72 274-522Zm0 214-64 126h128l-64-126Z"/>
+</svg>

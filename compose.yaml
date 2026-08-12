@@ -1,7 +1,7 @@
 services:
   watermarker:
     build: .
-    image: acks-watermarker:2.0.0
+    image: acks-watermarker:2.0.1
     container_name: acks-watermarker
     restart: unless-stopped
     read_only: true
