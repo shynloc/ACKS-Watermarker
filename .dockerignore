@@ -1,4 +1,7 @@
-.git
-.test-fixtures
-README.md
-
+*
+!Dockerfile
+!index.html
+!app.js
+!nginx.conf
+!assets/
+!assets/**

@@ -1,0 +1,16 @@
+{
+  "name": "acks-watermarker",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Browser-based private image and text watermark studio",
+  "license": "MIT",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:update-screenshots": "playwright test --update-snapshots",
+    "docs:screenshots": "node scripts/capture-docs.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1"
+  }
+}
