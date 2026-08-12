@@ -1,8 +1,14 @@
 services:
   watermarker:
     build: .
-    image: acks-watermarker:latest
+    image: acks-watermarker:2.0.0
     container_name: acks-watermarker
     restart: unless-stopped
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
     ports:
-      - "127.0.0.1:8080:80"
+      - "${ACKS_BIND_ADDRESS:-127.0.0.1}:${ACKS_PORT:-8080}:80"
